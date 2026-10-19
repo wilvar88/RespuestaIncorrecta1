@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaseTek | Refuerzo de Hábito - Campaña Fuente Única</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --basetek-navy: #072244;
+            --basetek-blue: #0056b3;
+            --warning-amber: #f59e0b;
+            --warning-bg: #fffbeb;
+            --danger-red: #ef4444;
+            --glass-bg: rgba(255, 255, 255, 0.88);
+            --glass-border: rgba(255, 255, 255, 0.65);
+            --glass-shadow: 0 20px 40px -10px rgba(0, 86, 179, 0.22);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #072244 0%, #004b99 50%, #0066cc 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+            color: #1e293b;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .glow-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.35;
+            z-index: 0;
+            animation: pulse 6s ease-in-out infinite alternate;
+        }
+        .glow-1 { width: 450px; height: 450px; background: #f59e0b; top: -100px; left: -100px; }
+        .glow-2 { width: 500px; height: 500px; background: #00a8ff; bottom: -150px; right: -100px; }
+
+        @keyframes pulse {
+            0% { transform: scale(1) translate(0, 0); }
+            100% { transform: scale(1.1) translate(20px, 20px); }
+        }
+
+        .card-container {
+            position: relative;
+            z-index: 1;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            box-shadow: var(--glass-shadow);
+            max-width: 680px;
+            width: 100%;
+            padding: 45px 40px;
+            text-align: center;
+            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--warning-bg);
+            border: 1.5px solid #fde68a;
+            color: #92400e;
+            padding: 8px 22px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .icon-warning {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin: 0 auto 20px auto;
+            box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.4);
+        }
+
+        h1 {
+            color: var(--basetek-navy);
+            font-size: 27px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            color: #475569;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 26px;
+        }
+
+        /* Comparativa Mito vs Realidad */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 26px;
+            text-align: left;
+        }
+
+        .comp-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 18px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+            border: 1.5px solid #e2e8f0;
+        }
+
+        .comp-card.myth {
+            border-top: 4px solid var(--danger-red);
+        }
+
+        .comp-card.reality {
+            border-top: 4px solid #10b981;
+        }
+
+        .comp-card h4 {
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .comp-card.myth h4 { color: #dc2626; }
+        .comp-card.reality h4 { color: #059669; }
+
+        .comp-card p {
+            font-size: 13px;
+            color: #334155;
+            line-height: 1.5;
+        }
+
+        /* Caja del Nuevo Hábito */
+        .info-box {
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            border-left: 5px solid var(--basetek-blue);
+            border-radius: 14px;
+            padding: 20px 22px;
+            text-align: left;
+            margin-bottom: 28px;
+        }
+
+        .info-box h3 {
+            color: var(--basetek-blue);
+            font-size: 14px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .info-box p {
+            color: #475569;
+            font-size: 13.5px;
+            line-height: 1.6;
+        }
+
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #0056b3 0%, #0080ff 100%);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 16px 36px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 700;
+            box-shadow: 0 10px 25px -5px rgba(0, 86, 179, 0.4);
+            transition: all 0.25s ease;
+            width: 100%;
+            max-width: 440px;
+            margin: 0 auto;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px -5px rgba(0, 86, 179, 0.5);
+            background: linear-gradient(135deg, #004b99 0%, #0070e0 100%);
+        }
+
+        .footer {
+            margin-top: 30px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        .footer strong {
+            color: var(--basetek-blue);
+        }
+
+        @media (max-width: 600px) {
+            .card-container { padding: 30px 20px; }
+            .comparison-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 23px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow-circle glow-1"></div>
+    <div class="glow-circle glow-2"></div>
+
+    <div class="card-container">
+        
+        <div class="icon-warning">⚠️</div>
+
+        <div class="badge-pill">
+            ✦ ¡Cuidado con este hábito! • Semana 1 ✦
+        </div>
+
+        <h1>¡Acabas de caer en la trampa del "Efecto Dominó"!</h1>
+        
+        <p class="subtitle">
+            Seleccionaste la <strong>Opción A</strong> (reutilizar el formato guardado en tu computador). Aunque parece una forma de ahorrar tiempo, es la causa #1 de reprocesos y no conformidades en BaseTek.
+        </p>
+
+        <!-- Comparativa Visual -->
+        <div class="comparison-grid">
+            <div class="comp-card myth">
+                <h4>✖ Formato Guardado en tu PC</h4>
+                <p>Es un documento no controlado. Puede omitir controles legales o cláusulas actualizadas y será rechazado en revisiones.</p>
+            </div>
+            <div class="comp-card reality">
+                <h4>✔ Repositorio Oficial (Fuente Única)</h4>
+                <p>Garantiza 100% de vigencia. Está aprobado por el Área de Procesos y respalda legalmente tu gestión.</p>
+            </div>
+        </div>
+
+        <!-- Caja de Recomendación Oficial -->
+        <div class="info-box">
+            <h3>🔄 El Nuevo Reflejo que Construimos Juntos:</h3>
+            <p>
+                Ahorrar 30 segundos usando un archivo viejo en tu escritorio puede costarle días de reprocesos a la empresa. A partir de hoy, <strong>antes de diligenciar cualquier formato: ¡1 clic al Repositorio Documental Oficial!</strong>
+            </p>
+        </div>
+
+        <a href="https://basetekco.sharepoint.com/sites/BASETEK1/SitePages/SCHome.aspx" class="btn-cta" target="_blank">
+            📂 Conocer y Guardar el Repositorio Documental Oficial
+        </a>
+
+        <div class="footer">
+            <p><strong>BaseTek Colombia</strong> &bull; Área de Procesos & Gestión del Conocimiento</p>
+            <p style="margin-top: 5px; font-size: 12px; color: #94a3b8;">Campaña de Cultura Organizacional "Fuente Única" 2026</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
